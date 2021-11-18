@@ -9,26 +9,11 @@ function cleanUpIndex() {
 }
 
 
+function createSingleIndex(object) {
+    return `
+        <div>
+            <p>${object[0].name}</p>
+        </div>
+    `
+}
 
-// const contactList = [  
-// 	{ 
-// 		name: "Oliver Queen", 
-// 		phone: "778-555-1234", 
-// 		address: "101 Main St, Star City, USA",    
-// 		email: "greenarrow@watchtower.com",  
-// 	},   
-// 	{    
-// 		name: "Jessica Cruz",    
-// 		phone: "123-555-5555",    
-// 		address: "Portland Oregon",    
-// 		email: "greenlantern@watchtower.com",  
-// 	}
-// ]
-
-// function createSingleIndex(object) {
-//     const newContact = document.querySelector('.main')
-
-//     console.log(newContact.insertAdjacentHTML('afterend', object.name))
-// }
-
-// createSingleIndex(contactList)

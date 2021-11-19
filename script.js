@@ -8,12 +8,22 @@ function cleanUpIndex() {
     })
 }
 
-
 function createSingleIndex(object) {
-    const newContact = document.querySelector('div.main')
-
-    newContact.insertAdjacentHTML('beforeend', object[0].name)
+	return `
+		<a>
+			<div>
+				<p>${object[0].name}</p>
+			</div>
+		</a>
+	`
 }
+
+
+// function createSingleIndex(object) {
+//     const newContact = document.querySelector('div.main')
+
+//     newContact.insertAdjacentHTML('beforeend', object.name)
+// }
 
 const contactList = [  
 	{ 
@@ -30,15 +40,10 @@ const contactList = [ 
 	}
 ]
 
-const contact = {
-
-    name: "Oliver Queen", 
-	phone: "778-555-1234", 
-	address: "101 Main St, Star City, USA",    
-	email: "greenarrow@watchtower.com",
-    
-}
-
-
 
 console.log(createSingleIndex(contactList))
+
+
+function renderIndex(array) {
+    
+}

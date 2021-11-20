@@ -21,7 +21,6 @@ function createSingleIndex(object) {
 
 function renderIndex(array) {
     const div = document.querySelector("div.main")
-	console.log(div.length)
 
 	for (item in array) {
 		div.insertAdjacentHTML('beforeend',createSingleIndex(array[item]))
@@ -40,6 +39,19 @@ function renderIndex(array) {
 		
 }
 
+contact = {    
+		name: "Jessica Cruz",    
+		phone: "123-555-5555",    
+		address: "Portland Oregon",    
+		email: "greenlantern@watchtower.com",  
+}
+
+function createDiv(object) {
+	return `
+		<div>${object}</div>
+	`
+}
+
 
 function cleanUpView() {
     const contact = document.querySelectorAll('div.contactinfo')
@@ -48,3 +60,32 @@ function cleanUpView() {
         item.remove();
     })
 }
+
+function renderView(object) {
+	const div = document.querySelector("div.main")
+	div.classList.add("contactinfo")
+
+	div.insertAdjacentHTML('afterbegin', createDiv(object.address))
+	div.insertAdjacentHTML('afterbegin', createDiv(object.phone))
+	div.insertAdjacentHTML('afterbegin', createDiv(object.email))
+	div.insertAdjacentHTML('afterbegin', createDiv(object.name))
+	
+
+	const name = document.querySelector('div.main > div')
+	name.classList.add("contactname")
+
+	const email = document.querySelector('div.main > div + div')
+	email.classList.add('contactemail')
+	email.classList.add('input')
+	
+	const phone = document.querySelector('div.main > div + div + div')
+	phone.classList.add('contactphone')
+
+	const address = document.querySelector('div.main > div + div + div + div')
+	address.classList.add('contactaddress')
+
+}
+
+// cleanUpView()
+renderView(contact)
+console.log(contact)

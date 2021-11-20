@@ -12,7 +12,7 @@ function createSingleIndex(object) {
 	return `
 		<a>
 			<div>
-				<p>${object[0].name}</p>
+				<p>${object.name}</p>
 			</div>
 		</a>
 	`
@@ -41,9 +41,22 @@ const contactList = [ 
 ]
 
 
-console.log(createSingleIndex(contactList))
-
-
 function renderIndex(array) {
-    
+    const div = document.querySelector("div.main")
+
+	for (item in array) {
+		div.insertAdjacentHTML('beforeend',createSingleIndex(array[item]))
+	}
+
+	const divOne = document.querySelectorAll("div.main > a")
+	const divTwo = document.querySelectorAll(" a > div")
+	
+	for (i=0, length = divOne.length; i<length; i++) {
+		divOne[i].classList.add("contact")
+
+		if (i>2) {
+			divTwo[i].classList.add('contact')
+		}
+	}
+	
 }

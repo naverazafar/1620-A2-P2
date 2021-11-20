@@ -19,28 +19,6 @@ function createSingleIndex(object) {
 }
 
 
-// function createSingleIndex(object) {
-//     const newContact = document.querySelector('div.main')
-
-//     newContact.insertAdjacentHTML('beforeend', object.name)
-// }
-
-const contactList = [  
-	{ 
-		name: "Oliver Queen", 
-		phone: "778-555-1234", 
-		address: "101 Main St, Star City, USA",    
-		email: "greenarrow@watchtower.com",  
-	},   
-	{    
-		name: "Jessica Cruz",    
-		phone: "123-555-5555",    
-		address: "Portland Oregon",    
-		email: "greenlantern@watchtower.com",  
-	}
-]
-
-
 function renderIndex(array) {
     const div = document.querySelector("div.main")
 	console.log(div.length)
@@ -63,3 +41,10 @@ function renderIndex(array) {
 }
 
 
+function cleanUpView() {
+    const contact = document.querySelectorAll('div.contactinfo')
+
+    contact.forEach(function(item) {
+        item.remove();
+    })
+}

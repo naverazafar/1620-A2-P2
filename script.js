@@ -39,13 +39,6 @@ function renderIndex(array) {
 		
 }
 
-contact = {    
-		name: "Jessica Cruz",    
-		phone: "123-555-5555",    
-		address: "Portland Oregon",    
-		email: "greenlantern@watchtower.com",  
-}
-
 function createDiv(object) {
 	return `
 		<div>${object}</div>
@@ -101,6 +94,3 @@ function renderView(object) {
 
 }
 
-// cleanUpView()
-renderView(contact)
-console.log(contact)

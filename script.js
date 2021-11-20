@@ -43,20 +43,23 @@ const contactList = [ 
 
 function renderIndex(array) {
     const div = document.querySelector("div.main")
+	console.log(div.length)
 
 	for (item in array) {
 		div.insertAdjacentHTML('beforeend',createSingleIndex(array[item]))
 	}
 
 	const divOne = document.querySelectorAll("div.main > a")
-	const divTwo = document.querySelectorAll(" a > div")
+	const divTwo = document.querySelectorAll("a > div")
 	
 	for (i=0, length = divOne.length; i<length; i++) {
 		divOne[i].classList.add("contact")
-
-		if (i>2) {
-			divTwo[i].classList.add('contact')
-		}
 	}
-	
+
+	for (i=0, length = divTwo.length; i<length; i++) {
+		divTwo[i].classList.add("contact")
+	}
+		
 }
+
+

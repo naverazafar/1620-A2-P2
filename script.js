@@ -114,3 +114,29 @@ function renderCreate() {
 	main.insertAdjacentHTML('beforeend', CreateDivs())
 }
 
+
+const contactList = [  
+	{ 
+		name: "Oliver Queen", 
+		phone: "778-555-1234", 
+		address: "101 Main St, Star City, USA",    
+		email: "greenarrow@watchtower.com",  
+	},   
+	{    
+		name: "Jessica Cruz",    
+		phone: "123-555-5555",    
+		address: "Portland Oregon",    
+		email: "greenlantern@watchtower.com",  
+	}
+]
+
+const sidebar = document.querySelector('a.nav-home')
+
+function logClckToConsole(evt) {
+	evt.preventDefault()
+	cleanUpIndex()
+	renderIndex(contactList)
+}
+
+sidebar.addEventListener('click', logClckToConsole)
+

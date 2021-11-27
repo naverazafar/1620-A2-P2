@@ -132,11 +132,20 @@ const contactList = [ 
 
 const sidebar = document.querySelector('a.nav-home')
 
-function logClckToConsole(evt) {
+function logClckContacts(evt) {
 	evt.preventDefault()
 	cleanUpIndex()
 	renderIndex(contactList)
 }
 
-sidebar.addEventListener('click', logClckToConsole)
+sidebar.addEventListener('click', logClckContacts)
 
+const create = document.querySelector('a.nav')
+
+function logClckCreate(evt) {
+	evt.preventDefault()
+	cleanUpIndex()
+	renderCreate()
+}
+
+create.addEventListener('click', logClckCreate)

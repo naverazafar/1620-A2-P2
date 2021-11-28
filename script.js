@@ -200,5 +200,7 @@ function logClckIndex(evt) {
 	
 maincontacts.addEventListener('click', logClckIndex)
 
-
+window.addEventListener('load', (event) => {
+	renderIndex(contactList)
+  })
 

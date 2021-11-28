@@ -9,7 +9,7 @@ function cleanUpIndex() {
 
 function createSingleIndex(object) {
 	return `
-		<a>
+		<a href="index.html">
 			<div class="contact">
 				<p>${object.name}</p>
 			</div>
@@ -60,9 +60,7 @@ function renderView(object) {
 	const div = document.querySelector("div.main")
 	div.classList.add("contactinfo")
 	
-	for (item in object) {
-		div.insertAdjacentHTML('afterbegin',createViewDivs(object[item]))
-	}
+	div.insertAdjacentHTML('afterbegin',createViewDivs(object))
 }
 
 function cleanUpCreate() {
@@ -149,3 +147,21 @@ function logClckCreate(evt) {
 }
 
 create.addEventListener('click', logClckCreate)
+
+
+const maincontacts = document.querySelector('div.main')
+
+function logClckIndex(evt) {
+	evt.preventDefault()
+	const name = evt.target.innerHTML
+	cleanUpIndex()
+
+	for (item in contactList) {
+		if (name == contactList[item].name) {
+			renderView(contactList[item])
+		}
+	}
+}
+	
+maincontacts.addEventListener('click', logClckIndex)
+

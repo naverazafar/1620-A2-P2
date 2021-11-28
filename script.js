@@ -1,4 +1,5 @@
 
+
 function cleanUpIndex() {
     const contacts = document.querySelectorAll('div.contact')
 
@@ -49,7 +50,7 @@ function createViewDivs(object) {
 
 
 function cleanUpView() {
-    const contact = document.querySelectorAll('div.contactinfo')
+    const contact = document.querySelectorAll('div.contactinfo.contactedit')
 
     contact.forEach(function(item) {
         item.remove();
@@ -61,6 +62,16 @@ function renderView(object) {
 	div.classList.add("contactinfo")
 	
 	div.insertAdjacentHTML('afterbegin',createViewDivs(object))
+
+	const closeContact = document.querySelector('button.button.close')
+
+	function logCloseContacts(evt) {
+		evt.preventDefault()
+		cleanUpView()
+		renderIndex(contactList) //notworking
+	}
+	
+	closeContact.addEventListener('click', logCloseContacts)
 }
 
 function cleanUpCreate() {
@@ -107,12 +118,6 @@ function CreateDivs() {
 	`
 }
 
-function renderCreate() {
-	const main = document.querySelector('div.main')
-	main.insertAdjacentHTML('beforeend', CreateDivs())
-}
-
-
 const contactList = [  
 	{ 
 		name: "Oliver Queen", 
@@ -127,6 +132,36 @@ const contactList = [ 
 		email: "greenlantern@watchtower.com",  
 	}
 ]
+
+
+function renderCreate() {
+	const main = document.querySelector('div.main')
+	main.insertAdjacentHTML('beforeend', CreateDivs())
+	const saveCreate = document.querySelector('button.button.save')
+	const cancelCreate = document.querySelector('button.button.cancel')
+
+	function logCancel(evt) {
+		evt.preventDefault()
+		cleanUpCreate()
+		renderIndex(contactList)  //NOT WORKING???
+	}
+
+	function logSave(evt) {
+		evt.preventDefault()
+		objAdd = {
+				name: document.getElementById('contactname').value,
+				phone: document.getElementById('contactphone').value,
+				address: document.getElementById('contactaddress').value,
+				email: document.getElementById('contactemail').value
+		}
+		contactList.push(objAdd)
+		cleanUpCreate()
+		renderView(objAdd)
+	}
+	saveCreate.addEventListener('click', logSave)
+	cancelCreate.addEventListener('click', logCancel)
+}
+
 
 const sidebar = document.querySelector('a.nav-home')
 
@@ -164,4 +199,6 @@ function logClckIndex(evt) {
 }
 	
 maincontacts.addEventListener('click', logClckIndex)
+
+
 

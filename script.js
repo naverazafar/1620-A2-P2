@@ -68,7 +68,7 @@ function renderView(object) {
 	function logCloseContacts(evt) {
 		evt.preventDefault()
 		cleanUpView()
-		renderIndex(contactList) //notworking
+		renderIndex(contactList) //NOT WORKING IN CODE BUT WORKS IN CONSOLE
 	}
 	
 	closeContact.addEventListener('click', logCloseContacts)
@@ -140,12 +140,6 @@ function renderCreate() {
 	const saveCreate = document.querySelector('button.button.save')
 	const cancelCreate = document.querySelector('button.button.cancel')
 
-	function logCancel(evt) {
-		evt.preventDefault()
-		cleanUpCreate()
-		renderIndex(contactList)  //NOT WORKING???
-	}
-
 	function logSave(evt) {
 		evt.preventDefault()
 		objAdd = {
@@ -158,6 +152,13 @@ function renderCreate() {
 		cleanUpCreate()
 		renderView(objAdd)
 	}
+
+	function logCancel(evt) {
+		evt.preventDefault()
+		cleanUpCreate()
+		renderIndex(contactList)  //NOT WORKING IN CODE BUT WORKS IN CONSOLE
+	}
+
 	saveCreate.addEventListener('click', logSave)
 	cancelCreate.addEventListener('click', logCancel)
 }
